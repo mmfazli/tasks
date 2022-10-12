@@ -6,7 +6,7 @@ function App(): JSX.Element {
     return (
         <div className="App">
             <header className="App-header">
-                UM COS420 with React Hooks and TypeScript
+                UM COS420 with React Hooks and TypeScript COS420
             </header>
             <h2>Mohammed Fazli COS420 Hello World</h2>
             <ul>
@@ -18,7 +18,7 @@ function App(): JSX.Element {
                 <Row>
                     <Col>
                         <div id="rectangle"></div>
-                        <Button onClick={() => console.log("I am logged")}>
+                        <Button onClick={() => console.log("Hello World!")}>
                             Log Hello World
                         </Button>
                     </Col>
@@ -34,7 +34,7 @@ function App(): JSX.Element {
             </Container>
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload. COS420
+                automatically reload.COS420
             </p>
         </div>
     );
