@@ -44,12 +44,11 @@ export function shout(message: string): string {
  * mark. Do not use an `if` statement in solving this question.
  */
 export function isQuestion(message: string): boolean {
-    const q = "?";
-    if (message.endsWith("q")) {
+    // eslint-disable-next-line no-empty
+    while (message.endsWith("?")) {
         return true;
-    } else {
-        return false;
     }
+    return false;
 }
 
 /**
