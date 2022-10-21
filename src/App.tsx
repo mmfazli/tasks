@@ -9,7 +9,7 @@ function App(): JSX.Element {
                 COS420 with React Hooks and TypeScript with React Hooks and
                 TypeScript upstream/task-functions COS420
             </header>
-            <h2>COS420 Hello World</h2>
+            <h1>Mohammed Fazli</h1>
             <ul>
                 <li>List</li>
                 <li>List</li>
@@ -35,7 +35,7 @@ function App(): JSX.Element {
             </Container>
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload.COS420
+                automatically reload.
             </p>
         </div>
     );
