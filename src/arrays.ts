@@ -159,5 +159,16 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    let count = 0;
+    let sum = 0;
+
+    for (const integers of values) {
+        sum = sum + integers;
+        if (integers < 0) {
+            values.splice(count, 0, sum);
+        }
+        count = count + 1;
+    }
+    values.push(sum);
+    return values;
 }
