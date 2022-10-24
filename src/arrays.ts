@@ -130,12 +130,23 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    const count = 0;
-    const out = "";
-    for (let integers of addends) {
-        integers = integers + count;
+    let sum = 0;
+    let out = "";
+    if (addends.length != 0) {
+        for (const integers of addends) {
+            sum = sum + integers;
+        }
+        out = out + sum + "=";
+
+        for (const integers of addends) {
+            out = out + integers + "+";
+        }
+        out = out.substring(0, out.length - 1);
+    } else {
+        out = "0=0";
     }
-    return "";
+
+    return out;
 }
 
 /**
