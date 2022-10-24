@@ -169,6 +169,6 @@ export function injectPositive(values: number[]): number[] {
         }
         count = count + 1;
     }
-    values.push(sum);
+    //value.push(sum)
     return values;
 }
