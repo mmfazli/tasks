@@ -90,8 +90,10 @@ export const removeDollars = (amounts: string[]): number[] => {
 export const shoutIfExclaiming = (messages: string[]): string[] => {
     const newArray = [...messages];
     const q = newArray.filter((word: string): boolean => !word.includes("?"));
-
-    return [];
+    const ex = q.map((word: string): string =>
+        word.includes("!") ? word.toUpperCase() : word
+    );
+    return ex;
 };
 
 /**
@@ -132,7 +134,7 @@ export function makeMath(addends: number[]): string {
     const out = "";
     for (let integers of addends) {
         integers = integers + count;
-    } /** count = praseint(count)   */
+    }
     return "";
 }
 
