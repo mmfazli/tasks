@@ -7,29 +7,23 @@ import { workerData } from "worker_threads";
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    const count = 0;
-    const arrayLength = numbers.length;
-    const emptyArr = [];
-    const newArray = [];
-    if (arrayLength > 1) {
-        for (const items of numbers) {
-            if (count === 0) {
-                newArray.push(items);
-            }
-            if (count === arrayLength) {
-                newArray.push(items);
-            }
-            count + 1;
-        }
+    const newArray = [...numbers];
+    const oneArray = [];
+    const firstLast = [];
+    let first = 0;
+    let last = 0;
+    if (newArray.length == 0) {
         return newArray;
-    } else if (arrayLength === 1) {
-        for (const item of numbers) {
-            newArray.push(item);
-            newArray.push(item);
-        }
-        return newArray;
+    } else if (newArray.length == 2) {
+        oneArray.push(0);
+        oneArray.push(0);
+        return oneArray;
     } else {
-        return numbers;
+        first = newArray[0];
+        last = newArray[newArray.length - 1];
+        firstLast.push(first);
+        firstLast.push(last);
+        return firstLast;
     }
 }
 
