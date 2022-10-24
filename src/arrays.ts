@@ -1,3 +1,5 @@
+import { workerData } from "worker_threads";
+
 /**
  * Consume an array of numbers, and return a new array containing
  * JUST the first and last number. If there are no elements, return
@@ -5,10 +7,30 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    const chop = [...numbers];
-    const emptyArray = [];
+    const count = 0;
+    const arrayLength = numbers.length;
+    const emptyArr = [];
     const newArray = [];
-    return numbers;
+    if (arrayLength > 1) {
+        for (const items of numbers) {
+            if (count === 0) {
+                newArray.push(items);
+            }
+            if (count === arrayLength) {
+                newArray.push(items);
+            }
+            count + 1;
+        }
+        return newArray;
+    } else if (arrayLength === 1) {
+        for (const item of numbers) {
+            newArray.push(item);
+            newArray.push(item);
+        }
+        return newArray;
+    } else {
+        return numbers;
+    }
 }
 
 /**
@@ -29,7 +51,17 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    return [];
+    const newArray = [...numbers];
+    const stringToIntArray = [];
+    for (const integers of newArray) {
+        const x = parseInt(integers);
+        if (isNaN(x)) {
+            stringToIntArray.push(0);
+        } else {
+            stringToIntArray.push(x);
+        }
+    }
+    return stringToIntArray;
 }
 
 /**
@@ -49,6 +81,9 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
+    const newArray = [...messages];
+    const q = newArray.filter((word: string): boolean => !word.includes("?"));
+
     return [];
 };
 
@@ -66,7 +101,12 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    return false;
+    const RGB = [...colors];
+    const shades = RGB.every(
+        (RGB: string): boolean =>
+            RGB == "red" || RGB == "green" || RGB == "blue"
+    );
+    return shades;
 }
 
 /**
@@ -77,6 +117,11 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
+    const count = 0;
+    const out = "";
+    for (let integers of addends) {
+        integers = integers + count;
+    } /** count = praseint(count)   */
     return "";
 }
 
