@@ -21,7 +21,13 @@ export function getPublishedQuestions(questions: Question[]): Question[] {
  * `expected`, and an empty array for its `options`.
  */
 export function getNonEmptyQuestions(questions: Question[]): Question[] {
-    return [];
+    const newArray = [];
+    for (const i of questions) {
+        if (i.body != "" || i.expected != "" || i.options.length != 0) {
+            newArray.push(i);
+        }
+    }
+    return newArray;
 }
 
 /***
@@ -40,7 +46,13 @@ export function findQuestion(
  * with the given `id`.
  */
 export function removeQuestion(questions: Question[], id: number): Question[] {
-    return [];
+    const newArray = [];
+    for (const i of questions) {
+        if (i.id != id) {
+            newArray.push(i);
+        }
+    }
+    return newArray;
 }
 
 /***
@@ -48,21 +60,33 @@ export function removeQuestion(questions: Question[], id: number): Question[] {
  * questions, as an array.
  */
 export function getNames(questions: Question[]): string[] {
-    return [];
+    const newArray = [];
+    for (const i of questions) {
+        newArray.push(i.name);
+    }
+    return newArray;
 }
 
 /***
  * Consumes an array of questions and returns the sum total of all their points added together.
  */
 export function sumPoints(questions: Question[]): number {
-    return 0;
+    let sum = 0;
+    for (const i of questions) {
+        sum += i.points;
+    }
+    return sum;
 }
 
 /***
  * Consumes an array of questions and returns the sum total of the PUBLISHED questions.
  */
 export function sumPublishedPoints(questions: Question[]): number {
-    return 0;
+    let sum = 0;
+    for (const i of questions) {
+        if (i.published) sum += i.points;
+    }
+    return sum;
 }
 
 /***
