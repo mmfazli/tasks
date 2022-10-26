@@ -1,3 +1,4 @@
+import { count } from "console";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 
@@ -107,7 +108,22 @@ id,name,options,points,published
  * Check the unit tests for more examples!
  */
 export function toCSV(questions: Question[]): string {
-    return "";
+    let CSV = "id,name,options,points,published";
+    for (const i of questions) {
+        CSV =
+            CSV +
+            "\n" +
+            i.id +
+            "," +
+            i.name +
+            "," +
+            i.options.length +
+            "," +
+            i.points +
+            "," +
+            i.published;
+    }
+    return CSV;
 }
 
 /**
@@ -116,6 +132,7 @@ export function toCSV(questions: Question[]): string {
  * making the `text` an empty string, and using false for both `submitted` and `correct`.
  */
 export function makeAnswers(questions: Question[]): Answer[] {
+    const newArray = [];
     return [];
 }
 
@@ -124,7 +141,12 @@ export function makeAnswers(questions: Question[]): Answer[] {
  * each question is now published, regardless of its previous published status.
  */
 export function publishAll(questions: Question[]): Question[] {
-    return [];
+    const newArray = [];
+    for (const i of questions) {
+        i.published = true;
+        newArray.push(i);
+    }
+    return newArray;
 }
 
 /***
@@ -132,6 +154,14 @@ export function publishAll(questions: Question[]): Question[] {
  * are the same type. They can be any type, as long as they are all the SAME type.
  */
 export function sameType(questions: Question[]): boolean {
+    const newArray = [];
+    let count = 1;
+    for (const i of questions) {
+        if (i.type[0] == i.type[count]) {
+            newArray.push(i);
+        }
+        count += 1;
+    }
     return false;
 }
 
@@ -159,6 +189,7 @@ export function renameQuestionById(
     targetId: number,
     newName: string
 ): Question[] {
+    const newArray = [...questions];
     return [];
 }
 
